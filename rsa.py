@@ -5,15 +5,15 @@ import sys
 
 def factor(line):
     number = int(line)
-    val = 0
+    value = 0
     if number < 4:
         print("{:d}={:d}*1".format(number, number))
         return
     for i in range(2, number):
         if number % i == 0:
-            val = number // i
+            value = number // i
             break
-    print("{:d}={:d}*{:d}".format(number, val, i))
+    print("{:d}={:d}*{:d}".format(number, value, i))
 
 
 if len(sys.argv) != 2:
@@ -25,8 +25,7 @@ try:
 except FileNotFoundError:
     print("Error: Can't open file <{:s}>".format(filename))
     sys.exit()
-
-for line in test:
-    factor(line)
+line = test.read()
+factor(line)
 
 test.close()
